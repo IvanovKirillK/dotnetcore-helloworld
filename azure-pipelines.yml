@@ -44,5 +44,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: inline
-    script: 'ARMClient GET /subscriptions/$(SubID)/resourceGroups/$(resourcrGroupName)/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01'
+    script: '$api=Get-AzureRmResource -ResourceType "Microsoft.ApiManagement/service" -ResourceGroupName $(resourcrGroupName) -ResourceName $(webAppName)'
+    script: '$api.Properties.provisioningState'
+    #script: 'ARMClient GET /subscriptions/$(SubID)/resourceGroups/$(resourcrGroupName)/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01'
     errorActionPreference: 'continue'
