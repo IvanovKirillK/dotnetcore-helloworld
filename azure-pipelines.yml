@@ -10,9 +10,7 @@ variables:
   buildConfiguration: 'Release'
   azureSubscription: 'AzureConnection'
   webAppName: 'serko-testcase'
-  resourcrGroupName: 'serko-testcase'
-  subID: '34d6d065-e2e4-466b-8978-d2e76aaf094f'
-
+  
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
