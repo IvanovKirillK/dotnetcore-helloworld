@@ -31,8 +31,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
 
-- task: AzureRmWebAppDeployment@3
-  inputs:
-    azureSubscription: $(azureSubscription)
-    WebAppName: serko-testcase
-    Package: $(System.ArtifactsDirectory)/**/*.zip
+#- task: AzureRmWebAppDeployment@3
+#  inputs:
+#    azureSubscription: $(azureSubscription)
+#    WebAppName: serko-testcase
+#    Package: $(System.ArtifactsDirectory)/**/*.zip
