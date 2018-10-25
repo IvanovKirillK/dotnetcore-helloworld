@@ -8,7 +8,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  azureSubscription: '34d6d065-e2e4-466b-8978-d2e76aaf094f'
+  azureSubscription: 'AzureConnection'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
