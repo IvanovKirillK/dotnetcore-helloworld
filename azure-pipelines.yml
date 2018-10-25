@@ -8,6 +8,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  azureSubscription: '34d6d065-e2e4-466b-8978-d2e76aaf094f'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
@@ -30,3 +31,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
 
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: $(azureSubscription)
+    WebAppName: serko-testcase
+    Package: $(System.ArtifactsDirectory)/**/*.zip
