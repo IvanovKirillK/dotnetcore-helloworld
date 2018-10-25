@@ -10,6 +10,8 @@ variables:
   buildConfiguration: 'Release'
   azureSubscription: 'AzureConnection'
   webAppName: 'serko-testcase'
+  resourcrGroupName: 'serko-testcase'
+  subID: '34d6d065-e2e4-466b-8978-d2e76aaf094f'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
@@ -38,3 +40,9 @@ steps:
     WebAppName: $(webAppName)
     Package: $(System.ArtifactsDirectory)/**/*.zip
     takeAppOfflineFlag: true
+    
+ - task: PowerShell@2
+  inputs:
+    targetType: inline
+    script: 'ARMClient GET /subscriptions/$(SubID)/resourceGroups/$(resourcrGroupName)/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01'
+    errorActionPreference: 'continue'
