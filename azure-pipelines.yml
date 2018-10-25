@@ -35,5 +35,5 @@ steps:
 - task: AzureRmWebAppDeployment@3
   inputs:
     azureSubscription: $(azureSubscription)
-    WebAppName: webAppName
+    WebAppName: $(webAppName)
     Package: $(System.ArtifactsDirectory)/**/*.zip
